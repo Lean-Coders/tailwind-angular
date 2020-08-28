@@ -1,27 +1,32 @@
-# Tailwind
+# Tailwind Setup for Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Setup an angular cli project
 
-## Code scaffolding
+npx @angular/cli new tailwind --minimal --inlineStyle --inlineTemplate
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install the custom-ewebpack builder 
 
-## Build
+This allows to modify the webpack config that the angular cli uses... needed to customize the postcss config
+npm i -D @angular-builders/custom-webpack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Setup the custom-webpack builder 
 
-## Running unit tests
+- add the webpack.config.js to the project root
+- replace '@angular-devkit/build-angular:browser' with '@angular-builders/custom-webpack:browser' 
+and '@angular-devkit/build-angular:dev-server' with '@angular-builders/custom-webpack:dev-server' in the angular.json 
+and add the two entries for 'customWebpackConfig' in the build and serve targets
+=> compare angular.json and angular.orig.json
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Install tailwind
+npm i -D tailwindcss
 
-## Running end-to-end tests
+### Setup tailwind
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- create / customize the tailwind.config.js in the project root
+- add tailwind.css to the src folder and add in the 'styles' field in angular.json
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### done

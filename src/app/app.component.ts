@@ -23,6 +23,10 @@ import { Component } from '@angular/core';
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
+
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Button
+    </button>
     
   `,
   styles: []
